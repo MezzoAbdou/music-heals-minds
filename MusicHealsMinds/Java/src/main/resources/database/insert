@@ -1,0 +1,3 @@
+INSERT INTO questions (question) VALUES ('test question');
+INSERT INTO answers (answer, question_id) VALUES ('TEST ANSWER', 1);
+INSERT INTO choices (choice_1, choice_2, choice_3, question_id) VALUES ('test choice 1', 'test choice 2', 'test choice', 1);

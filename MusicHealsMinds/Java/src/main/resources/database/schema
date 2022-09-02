@@ -1,0 +1,30 @@
+
+DROP TABLE IF EXISTS answers;
+DROP TABLE IF EXISTS choices;
+DROP TABLE IF EXISTS questions;
+
+
+Create table questions (
+	question_id serial NOT NULL,
+	question varchar(50) NOT NULL,
+	CONSTRAINT PK_question PRIMARY KEY (question_id)
+);
+
+
+CREATE TABLE answers(
+	answer_id serial NOT NULL,
+	answer varchar(500) NOT NULL,
+	question_id int NOT NULL,
+	CONSTRAINT PK_answer PRIMARY KEY (answer_id),
+	CONSTRAINT FK_questions FOREIGN KEY (question_id) REFERENCES questions (question_id)
+);
+
+Create table choices (
+	choice_id serial NOT NULL, 
+	choice_1 varchar(50) NOT NULL,
+	choice_2 varchar(50) NOT NULL,
+	choice_3 varchar(50) NOT NULL,
+	question_id int NOT NULL,
+	CONSTRAINT PK_choice PRIMARY KEY (choice_id),
+	CONSTRAINT FK_questions FOREIGN KEY (question_id) REFERENCES questions (question_id)
+);
